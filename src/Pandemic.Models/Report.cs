@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json;
 
 namespace Pandemic.Models
 {
@@ -112,13 +113,9 @@ namespace Pandemic.Models
         [Column("modified_dt")]
         public DateTime ModifiedDt { get; set; } = DateTime.Now;
 
-        [ForeignKey("DoctorId")]
-        public virtual Doctor Doctor { get; set; }
-
-        [ForeignKey("PatientId")]
-        public virtual Patient Patient { get; set; }
-
-        [ForeignKey("ReportTypeCd")]
-        public virtual ReportType ReportType { get; set; }
+        public override string ToString()
+        {
+            return JsonSerializer.Serialize(this);
+        }
     }
 }

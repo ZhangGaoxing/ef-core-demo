@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json;
 
 namespace Pandemic.Models
 {
@@ -63,6 +64,9 @@ namespace Pandemic.Models
         [Column("modified_dt")]
         public DateTime ModifiedDt { get; set; } = DateTime.Now;
 
-        public virtual List<Doctor> Doctors { get; set; }
+        public override string ToString()
+        {
+            return JsonSerializer.Serialize(this);
+        }
     }
 }

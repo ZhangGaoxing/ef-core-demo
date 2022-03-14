@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Pandemic.Models;
+
+PandemicContext context = new PandemicContext();
+
+var list = context.ReportTypes.ToList();
+
+Console.Read();
