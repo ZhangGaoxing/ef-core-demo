@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 9.x                               */
-/* Created on:     2022/3/14 9:29:24                            */
+/* Created on:     2022/3/14 9:44:09                            */
 /*==============================================================*/
 
 
@@ -11,11 +11,11 @@ create table doctor (
    id                   SERIAL not null,
    name                 VARCHAR(20)          not null,
    hospital_id          INT4                 not null,
-   is_deleted           INT4                 null default 0,
+   is_deleted           INT4                 not null default 0,
    creator_id           VARCHAR(50)          null,
-   created_dt           TIMESTAMP            null default 'now()',
+   created_dt           TIMESTAMP            not null default 'now()',
    modifier_id          VARCHAR(50)          null,
-   modified_dt          TIMESTAMP            null,
+   modified_dt          TIMESTAMP            not null default 'now()',
    constraint PK_DOCTOR primary key (id)
 );
 
@@ -52,11 +52,11 @@ comment on column doctor.modified_dt is
 create table hospital (
    id                   SERIAL not null,
    name                 VARCHAR(20)          not null,
-   is_deleted           INT4                 null default 0,
+   is_deleted           INT4                 not null default 0,
    creator_id           VARCHAR(50)          null,
-   created_dt           TIMESTAMP            null default 'now()',
+   created_dt           TIMESTAMP            not null default 'now()',
    modifier_id          VARCHAR(50)          null,
-   modified_dt          TIMESTAMP            null,
+   modified_dt          TIMESTAMP            not null default 'now()',
    constraint PK_HOSPITAL primary key (id)
 );
 
@@ -93,11 +93,11 @@ create table patient (
    sex                  VARCHAR(10)          null,
    age                  INT2                 null,
    mobile               VARCHAR(15)          null,
-   is_deleted           INT4                 null default 0,
+   is_deleted           INT4                 not null default 0,
    creator_id           VARCHAR(50)          null,
-   created_dt           TIMESTAMP            null default 'now()',
+   created_dt           TIMESTAMP            not null default 'now()',
    modifier_id          VARCHAR(50)          null,
-   modified_dt          TIMESTAMP            null,
+   modified_dt          TIMESTAMP            not null default 'now()',
    constraint PK_PATIENT primary key (id)
 );
 
@@ -147,11 +147,11 @@ create table report (
    test_time            TIMESTAMP            null,
    report_time          TIMESTAMP            null,
    description          VARCHAR(200)         null,
-   is_deleted           INT4                 null default 0,
+   is_deleted           INT4                 not null default 0,
    creator_id           VARCHAR(50)          null,
-   created_dt           TIMESTAMP            null default 'now()',
+   created_dt           TIMESTAMP            not null default 'now()',
    modifier_id          VARCHAR(50)          null,
-   modified_dt          TIMESTAMP            null,
+   modified_dt          TIMESTAMP            not null default 'now()',
    constraint PK_REPORT primary key (id)
 );
 
@@ -207,11 +207,11 @@ create table report_type (
    cd                   VARCHAR(20)          not null,
    name                 VARCHAR(20)          null,
    description          VARCHAR(200)         null default 'covid',
-   is_deleted           INT4                 null default 0,
+   is_deleted           INT4                 not null default 0,
    creator_id           VARCHAR(50)          null,
-   created_dt           TIMESTAMP            null default 'now()',
+   created_dt           TIMESTAMP            not null default 'now()',
    modifier_id          VARCHAR(50)          null,
-   modified_dt          TIMESTAMP            null,
+   modified_dt          TIMESTAMP            not null default 'now()',
    constraint PK_REPORT_TYPE primary key (cd)
 );
 
