@@ -18,7 +18,7 @@ namespace Pandemic.Models
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             optionsBuilder.EnableSensitiveDataLogging(true)
-                .UseNpgsql("Server=127.0.0.1;Port=54321;Database=pandemic;User Id=postgres;Password=sa#123!;");
+                .UseNpgsql("Server=127.0.0.1;Port=54321;Database=pandemic;User Id=postgres;Password=@Passw0rd;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

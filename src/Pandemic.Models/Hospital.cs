@@ -64,6 +64,8 @@ namespace Pandemic.Models
         [Column("modified_dt")]
         public DateTime ModifiedDt { get; set; } = DateTime.Now;
 
+        public virtual List<Doctor> Doctors { get; set; }
+
         public override string ToString()
         {
             return JsonSerializer.Serialize(this);

@@ -2,6 +2,6 @@
 
 PandemicContext context = new PandemicContext();
 
-var list = context.ReportTypes.ToList();
+var types = context.ReportTypes.ToList();
 
 Console.Read();

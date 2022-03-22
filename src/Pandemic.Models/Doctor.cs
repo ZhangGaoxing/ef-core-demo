@@ -71,6 +71,11 @@ namespace Pandemic.Models
         [Column("modified_dt")]
         public DateTime ModifiedDt { get; set; } = DateTime.Now;
 
+        [ForeignKey("HospitalId")]
+        public virtual Hospital Hospital { get; set; }
+
+        public virtual List<Report> Reports { get; set; }
+
         public override string ToString()
         {
             return JsonSerializer.Serialize(this);
