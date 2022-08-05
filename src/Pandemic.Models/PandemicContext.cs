@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace Pandemic.Models
 {
@@ -18,7 +19,8 @@ namespace Pandemic.Models
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             optionsBuilder.EnableSensitiveDataLogging(true)
-                .UseNpgsql("Server=127.0.0.1;Port=54321;Database=pandemic;User Id=postgres;Password=@Passw0rd;");
+                .LogTo(Console.WriteLine, LogLevel.Information)
+                .UseNpgsql("Server=192.168.166.36;Port=54321;Database=pandemic;User Id=postgres;Password=sa#123!;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
